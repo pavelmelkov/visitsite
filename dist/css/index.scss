@@ -1,0 +1,394 @@
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };     
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    
+    }
+} 
+
+*, ::before, ::after {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%; 
+    
+     @include respond(tab-land) { 
+        font-size: 56.25%; 
+    }
+    
+    @include respond(tab-port) { 
+        font-size: 50%; 
+    }
+    
+    @include respond(big-desktop) {
+        font-size: 75%; 
+    } 
+    }
+
+body {
+    font-family: "Gilroy-Medium"; 
+    box-sizing: border-box;
+     @include respond(tab-port) {
+        padding: 0;
+    } 
+}
+
+.wrapper {
+    display: grid;
+    grid-template-rows: 150px 1fr 420px repeat(2, 100hw) 200px;
+    grid-template-columns: minmax(min-content, 100%);
+    max-width: 100%;
+    justify-items: center;
+}
+
+.header {
+    padding-top: 80px;
+    background-color: white;
+    position: relative;
+    width: 100%;
+
+}
+
+.header--wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 50%;
+    transform: translateX(+50%);
+    
+}
+
+.header::after {
+    position: absolute;
+    content: "";
+    height: 1px;
+    background-color: #242424;
+    width: 50%;
+    top: 130%;
+    left: 25%;
+
+}
+
+.header--item:link {
+}
+
+.header--item:visited {
+}
+
+.header--item:hover {
+    cursor: pointer;
+}
+.header--item:active {
+}
+
+.header--item {
+    text-align: center;
+    align-self: center;
+    font-size: 22px;
+    animation-name: name;
+    animation-duration: 1s;
+    animation-delay: .0s;
+    animation-timing-function: linear;
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    max-width: 50%;
+}
+
+.intro div {
+    font-size: 25px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.intro div:nth-child(2) {
+    margin: 0 auto;
+    padding-right: 70px;
+}
+
+.intro--wrapper1 {
+    display:flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.intro--wrapper2 {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.intro--wrapper2 img {
+    background-size: cover;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding-bottom: 30px !important;
+}
+
+.intro--item-name {
+    font-size: 50px !important;
+    font-weight: 500;
+    line-height: 55px;
+    margin-left: 30px;
+}
+
+.intro--item-descr {
+    font-size: 18px;
+    align-self: flex-end;
+    white-space: nowrap;
+    font-size: 20px !important;
+    transform: translateX(-25px);
+    padding-left: 30px;
+}
+
+.intro--item-lang {
+    transform: rotate(-90deg);
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 20px !important;
+    padding: 0 !important;
+    padding-left: 0px !important;
+    height: 40px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(241, 241, 241);
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    line-height: 24px;
+    width: 100%;
+}
+
+.about p {
+    font-size: 18px;
+    width: 500px;
+}
+
+.about p:first-child {
+    font-size: 30px;
+}
+
+.skills {
+    text-align: center;
+    background-color: white;
+    max-width: 50%;
+    padding: 40px 0;
+}
+
+.skills p {
+    margin-top: 0px;
+    font-size: 18px;
+}
+
+.skills p:first-child {
+    font-size: 30px;
+}
+
+.skills--wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.portfolio {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(241, 241, 241);
+    width: 100%;
+    padding-top: 20px;
+}
+
+.portfolio__wrapper {
+    align-self: center;
+    width: 70%;
+    text-align: center;
+}
+
+.portfolio__wrapper p {
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.portfolio__wrapper--github {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    padding: 50px 0;
+}
+
+.portfolio__wrapper--github div a {
+    font-size: 22px;
+    margin: 25px;
+}
+
+.portfolio__wrapper--img {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.with__line {
+    position: relative;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+.with__line::after {
+    position: absolute;
+    content: "";
+    height: 1px;
+    background-color: #242424;
+    width: 50%;
+    top: 100%;
+    left: 25%;
+}
+
+
+.portfolio__wrapper--img figure img {
+    width: 70%;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    max-width: 50%;
+    text-align: center;
+}
+
+.contacts p:not(p:first-child) {
+    font-size: 20px;
+    padding: 20px 0;
+}
+
+.contacts p:first-child {
+    font-size: 30px;
+}
+
+.contacts__button {
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    padding: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.contacts__button:hover {
+    background-color: rgb(75, 75, 75);
+    transform: translateY(-2px);
+    transition: 0.03s;
+}
+
+.contacts__button:active {
+    background-color: black;
+    transform: translateY(+2px);
+    padding: 7px;
+    margin: 3px;
+}
+
+
+.contacts__icons {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.contacts__icons--icon {
+    cursor: pointer;
+}
+
+.contacts__copyright {
+    width: 30px;
+}
+
+.contacts__footer {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.contacts__footer--autor {
+    padding: 5px;
+    font-size: 16px;
+}
+
+@font-face {
+    font-family: "Gilroy-Medium"; 
+    src: url("../fonts/gilroy-medium.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+figcaption {
+    padding-top: 8px;
+    font-size: 21px;
+    padding-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+@keyframes name {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px)
+    }
+    50% {
+        opacity: 0.3;
+        transform: translate(-80px);
+    }
+    70% {
+        opacity: 0.5;
+        transform: translate(-60px);
+    }
+    90% {
+        opacity: 0.7;
+        transform: translate(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes icon {
+
+}
+
+particle {
+	position: fixed;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	pointer-events: none;
+	background-repeat: no-repeat;
+	background-size: contain;
+}

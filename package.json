@@ -1,0 +1,15 @@
+{
+  "name": "new",
+  "version": "1.0.0",
+  "description": "new",
+  "main": "index.js",
+  "homepage": "https://pavelmelkov.github.io/visitsite",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gh-pages": "^4.0.0"
+  }
+}
